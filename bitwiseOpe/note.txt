@@ -1,0 +1,5 @@
+there are 6 bitwise operator
+&,|,^(Xor),<<(left shift),>>(right shift),and ~(not)
+
+left shift = x<<y = x*2^y
+right shift = x>>y = [x/(2^y)] -> floor value
