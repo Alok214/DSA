@@ -1,0 +1,42 @@
+// sliding window
+
+int search(string pat, string txt) {
+	    int c=0;
+	    int n1=txt.size();
+	    int n2=pat.size();
+	   // if(n2>n1) return -1;
+	   // sort(pat.begin(),pat.end());
+	   // string s;
+	   // for(int i=0;i<n2;i++){
+	   //     s+=txt[i];
+	   // }
+	   // sort(s.begin(),s.end());
+	   // if(s==pat) c++;
+	   // for(int i=n2;i<n1;i++){
+	   //     //int x=i-n2;
+	   //     s=s.erase(0,1)+txt[i];
+	   //     sort(s.begin(),s.end());
+	   //     if(s==pat) c++;
+	   // }
+	   // return c;
+	   
+	   // OR
+	   
+	   unordered_map<char,int> m1,m2;
+	   for(int i=0;i<n2;i++){
+	       m1[txt[i]]++;
+	       m2[pat[i]]++;
+	   }
+	   if(m1==m2) c++;
+	   int i=0;
+	   for(int j=n2;j<n1;j++){
+	       m1[txt[j]]++;
+	       m1[txt[i]]--;
+	       if(m1[txt[i]]==0){
+	           m1.erase(txt[i]);
+	       }
+	       if(m1==m2) c++;
+	       i++;
+	   }
+	   return c;
+	}
